@@ -1,0 +1,8 @@
+geopandas
+osmnx
+jupyter
+ipykernel
+folium
+mapclassify
+matplotlib
+pandas
