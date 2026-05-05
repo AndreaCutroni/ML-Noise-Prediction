@@ -1,9 +1,16 @@
+<<<<<<< HEAD
+=======
+# Cache
+cache/
+
+>>>>>>> c3b70fa14cba514fd2350a320efbdd122a2526b1
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+<<<<<<< HEAD
 build/
 develop-eggs/
 dist/
@@ -25,12 +32,24 @@ venv/
 .venv/
 ENV/
 env/
+=======
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+>>>>>>> c3b70fa14cba514fd2350a320efbdd122a2526b1
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+<<<<<<< HEAD
 *~
 .DS_Store
 
@@ -70,3 +89,19 @@ logs/
 # OS
 Thumbs.db
 .DS_Store
+=======
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (large files)
+# *.gpkg
+# *.shp
+# *.dbf
+# *.prj
+# *.shx
+*.tif
+
+
+>>>>>>> c3b70fa14cba514fd2350a320efbdd122a2526b1
