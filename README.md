@@ -44,3 +44,5 @@ All packages are defined in `environment.yml` and installed via `conda-forge`:
 | `ipykernel` | Connect the conda environment to VS Code |
 | `folium` | Interactive map rendering |
 | `mapclassify` | Classification schemes for choropleth maps |
+| `tqdm` | Display progress bars for loops and data processing |
+| `rasterio` | Read and manipulate geospatial raster data |
