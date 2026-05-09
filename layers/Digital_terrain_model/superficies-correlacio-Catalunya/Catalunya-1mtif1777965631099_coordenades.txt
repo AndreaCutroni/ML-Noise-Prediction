@@ -1,0 +1,13 @@
+Ràster: superficies-correlacio-Catalunya-1mtif1777965631099
+Escala: 10000
+
+Coordenada oest (metres): 420755.5
+Coordenada est (metres): 435623.5
+Coordenada nord (metres): 4590915.5
+Coordenada sud (metres): 4577757.5
+
+Tamany de píxel (metres): 1
+
+Nombre de píxels en X: 14868
+Nombre de píxels en Y: 13158
+
