@@ -12,3 +12,10 @@ dependencies:
   - mapclassify
   - tqdm
   - rasterio
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - plotly
+  - rasterstats
+  - scipy
