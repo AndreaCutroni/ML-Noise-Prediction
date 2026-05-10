@@ -34,15 +34,5 @@ conda activate data-encoding
 
 ## Dependencies
 
-All packages are defined in `environment.yml` and installed via `conda-forge`:
-
-| Package | Purpose |
-|---|---|
-| `geopandas` | Read, manipulate and save geospatial data |
-| `osmnx` | Download traffic signals and POIs from OpenStreetMap |
-| `jupyter` | Run the notebook |
-| `ipykernel` | Connect the conda environment to VS Code |
-| `folium` | Interactive map rendering |
-| `mapclassify` | Classification schemes for choropleth maps |
-| `tqdm` | Display progress bars for loops and data processing |
-| `rasterio` | Read and manipulate geospatial raster data |
+All packages are defined in `environment.yml` and installed via `conda-forge`.
+NOTE: New dependencies should always be added to the `environment.yml` for future users.
