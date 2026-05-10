@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="nan_traffic_signals_sample_50" name="nan_traffic_signals_sample_50">
+      <SimpleField name="element" type="string"/>
+      <SimpleField name="id" type="string"/>
+      <SimpleField name="signal_id" type="string"/>
+    </Schema>
+    <Schema id="nan_traffic_signals_sample_50.schema">
+      <SimpleField name="element" type="string"/>
+      <SimpleField name="signal_id" type="string"/>
+    </Schema>
+    <Schema id="nan_traffic_signals_sample_50.schema">
+      <SimpleField name="element" type="string"/>
+      <SimpleField name="signal_id" type="string"/>
+    </Schema>
+    <Document id="nan_traffic_signals_sample_50">
+      <name>nan_traffic_signals_sample_50</name>
+      <Placemark id="nan_traffic_signals_sample_50.1">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7221240629</SimpleData>
+            <SimpleData name="signal_id">1897</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2050288,41.4223659,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.2">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3218698747</SimpleData>
+            <SimpleData name="signal_id">545</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1712007,41.387131,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.3">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">1526422853</SimpleData>
+            <SimpleData name="signal_id">158</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1356785,41.409907,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.4">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3017647746</SimpleData>
+            <SimpleData name="signal_id">275</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1485451,41.3751106,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.5">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3208546119</SimpleData>
+            <SimpleData name="signal_id">539</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1801226,41.4002407,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.6">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">1904484068</SimpleData>
+            <SimpleData name="signal_id">180</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1385122,41.3789984,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.7">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">11254956958</SimpleData>
+            <SimpleData name="signal_id">3772</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1390466,41.3794864,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.8">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">10284850916</SimpleData>
+            <SimpleData name="signal_id">3450</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1581974,41.4295631,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.9">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">8121505591</SimpleData>
+            <SimpleData name="signal_id">2277</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1457198,41.3883823,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.10">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7195614917</SimpleData>
+            <SimpleData name="signal_id">1819</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1549702,41.376048,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.11">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">6743038814</SimpleData>
+            <SimpleData name="signal_id">1223</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1363711,41.3753857,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.12">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">11380590653</SimpleData>
+            <SimpleData name="signal_id">3998</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1859163,41.3955242,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.13">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">6932324302</SimpleData>
+            <SimpleData name="signal_id">1293</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1496825,41.426694,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.14">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">5782967877</SimpleData>
+            <SimpleData name="signal_id">1129</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2060899,41.4074163,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.15">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3229689838</SimpleData>
+            <SimpleData name="signal_id">562</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1670666,41.3885583,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.16">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7546139452</SimpleData>
+            <SimpleData name="signal_id">2165</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1685648,41.4304286,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.17">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7206995895</SimpleData>
+            <SimpleData name="signal_id">1836</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1969173,41.4160721,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.18">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7056769442</SimpleData>
+            <SimpleData name="signal_id">1746</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1814045,41.393517,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.19">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3193570463</SimpleData>
+            <SimpleData name="signal_id">430</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1775767,41.403764,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.20">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">5724094529</SimpleData>
+            <SimpleData name="signal_id">1042</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2046062,41.4173281,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.21">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3207273304</SimpleData>
+            <SimpleData name="signal_id">498</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1711575,41.3999282,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.22">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7009893327</SimpleData>
+            <SimpleData name="signal_id">1555</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1507705,41.3900971,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.23">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">4876336237</SimpleData>
+            <SimpleData name="signal_id">897</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1963084,41.4031004,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.24">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">6853701883</SimpleData>
+            <SimpleData name="signal_id">1259</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1755863,41.4271938,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.25">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">2979941605</SimpleData>
+            <SimpleData name="signal_id">239</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1726538,41.3883555,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.26">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">8148374850</SimpleData>
+            <SimpleData name="signal_id">2330</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1216577,41.3765278,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.27">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7412599184</SimpleData>
+            <SimpleData name="signal_id">1992</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.179111,41.4147914,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.28">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7020215457</SimpleData>
+            <SimpleData name="signal_id">1596</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2094821,41.400289,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.29">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7195505954</SimpleData>
+            <SimpleData name="signal_id">1809</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1419715,41.3724609,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.30">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">8119152533</SimpleData>
+            <SimpleData name="signal_id">2246</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.120305,41.3786061,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.31">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">11261669612</SimpleData>
+            <SimpleData name="signal_id">3784</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1733023,41.4035294,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.32">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">8121509926</SimpleData>
+            <SimpleData name="signal_id">2286</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1450743,41.3855145,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.33">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">3191418788</SimpleData>
+            <SimpleData name="signal_id">415</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.157629,41.4113074,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.34">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">10159225015</SimpleData>
+            <SimpleData name="signal_id">3296</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1333226,41.4069897,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.35">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">5782967878</SimpleData>
+            <SimpleData name="signal_id">1130</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2061274,41.4076395,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.36">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">4698159822</SimpleData>
+            <SimpleData name="signal_id">678</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.198681,41.4061066,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.37">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">10101290888</SimpleData>
+            <SimpleData name="signal_id">3189</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1498977,41.3758152,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.38">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">8119594972</SimpleData>
+            <SimpleData name="signal_id">2257</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1393889,41.4191589,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.39">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">11258759956</SimpleData>
+            <SimpleData name="signal_id">3777</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2063372,41.3973259,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.40">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">6335245626</SimpleData>
+            <SimpleData name="signal_id">1163</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.2001258,41.4255876,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.41">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7866434025</SimpleData>
+            <SimpleData name="signal_id">2211</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1872099,41.3917853,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.42">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">11623885837</SimpleData>
+            <SimpleData name="signal_id">4127</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1368479,41.3295859,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.43">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7020177119</SimpleData>
+            <SimpleData name="signal_id">1589</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1617719,41.4017342,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.44">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">5764563578</SimpleData>
+            <SimpleData name="signal_id">1075</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1876236,41.3941529,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.45">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">7207080001</SimpleData>
+            <SimpleData name="signal_id">1863</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.201622,41.4198953,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.46">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">9362708159</SimpleData>
+            <SimpleData name="signal_id">2698</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1263063,41.3776321,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.47">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">8996364049</SimpleData>
+            <SimpleData name="signal_id">2660</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1214999,41.3998737,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.48">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">10620447024</SimpleData>
+            <SimpleData name="signal_id">3534</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1794834,41.4234572,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.49">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">9405770663</SimpleData>
+            <SimpleData name="signal_id">2703</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1666758,41.4148594,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark id="nan_traffic_signals_sample_50.50">
+        <ExtendedData>
+          <SchemaData schemaUrl="#nan_traffic_signals_sample_50.schema">
+            <SimpleData name="element">node</SimpleData>
+            <SimpleData name="id">11204833357</SimpleData>
+            <SimpleData name="signal_id">3705</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            2.1778232,41.4422857,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>
