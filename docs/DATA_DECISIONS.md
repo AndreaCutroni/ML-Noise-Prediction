@@ -6,7 +6,7 @@ This dataset was preprocessed in QGis removing the closed poyllines and keeping 
 
 The coordinate system is the standard for Barcelona: EPSG:25831 - ETRS89 / UTM zone 31N.
 
-For a double check we will consider both TRAM and ID.
+TRAM = TRAMO (street segment ID)
 
 The first 3 columns were considered:
 - TOTAL_D: dB during the day
