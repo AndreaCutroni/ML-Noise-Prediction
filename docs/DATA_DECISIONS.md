@@ -15,6 +15,8 @@ The first 3 columns were considered:
 
 The length of the segment could be meaningful becuase it represents the distance betwenn two crosses.
 
+Transforming noise into logaritmic scale decrease correlation rather than increasing it.
+
 # Open Street Map
 
 Open street map data were downloaded from Internet. In the data processing phase, they are either loaded from file or with the command: ox.features_from_place("Barcelona, Spain", tags={"some_key": "some_value"}).
@@ -34,4 +36,4 @@ We preprocessed the road dataset to exclude the follwoing categoreis:
 ### Maxspeed and width
 
 Since most of these are NaN for OSM roads, we do not consdier the features. 
-Another reason to exclude them is that they would have high correlation with road category (class). 
+We checked correlation between these values and road categories, and there was no real correlazion, apart than for residential roads.
