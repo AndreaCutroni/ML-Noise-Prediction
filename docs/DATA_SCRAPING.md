@@ -44,7 +44,6 @@ OSM data for max speed, width and lanes is very sparse (mostly NaN).
 
 Momepy was used for calculating width. It is not the carrage width, but the building to building distance. 
 Openess was also calculated. 
-TODO: consider adding building height for calculating canyon height and h/w ratio.
 
 # Networkx
 
@@ -65,4 +64,6 @@ It measures hw direct routes are from a node to all others.
 
 # TODO
 
+Calculate closeness centrality, betweeness centrality ndoes, straightness centrality
 Consider adding distance from major road and distance to city center.
+Consider adding building height to momepy for calculating canyon height and h/w ratio.
