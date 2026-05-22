@@ -93,17 +93,3 @@ The OSM road classification includes:
 - Surface types may vary, but usually are natural to the area (unpaved).
 
 Note: Motorway is the only international standard classification, all other road classes are relative to the country/region.
-
-## Assumption
-
-category_attributes = {
-    'motorway': {'width': 30, 'maxspeed': 120},
-    'trunk': {'width': 15, 'maxspeed': 100},
-    'primary': {'width': 12, 'maxspeed': 90},
-    'secondary': {'width': 10, 'maxspeed': 50},
-    'tertiary': {'width': 8, 'maxspeed': 50},
-    'residential': {'width': 7, 'maxspeed': 30},
-    'living_street': {'width': 6, 'maxspeed': 20},
-    'busway': {'width': 8, 'maxspeed': 50},
-    'unclassified': {'width': 8, 'maxspeed': 30}
-}
