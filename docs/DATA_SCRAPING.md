@@ -1,0 +1,68 @@
+# Noise dataset
+
+The original dataset is "2017 tramer mapa estrategic soroll bcn". 
+
+This dataset was preprocessed in QGis removing the closed poyllines and keeping only the open polylines, which approximately overlap with the osm_roads.
+
+The coordinate system is the standard for Barcelona: EPSG:25831 - ETRS89 / UTM zone 31N.
+
+TRAM = TRAMO (street segment ID)
+
+The first 3 columns were considered:
+- TOTAL_D: dB during the day
+- TOTAL_E: dB during the evening
+- TOTAL_N: dB during the night
+
+The length of the segment could be meaningful becuase it represents the distance betwenn two crosses.
+
+Transforming noise into logaritmic scale decrease correlation rather than increasing it.
+
+# Open Street Map
+
+Open street map data were downloaded from Internet. In the data processing phase, they are either loaded from file or with the command: ox.features_from_place("Barcelona, Spain", tags={"some_key": "some_value"}).
+
+The geometry is always projected to EPSG:25831 - ETRS89 / UTM zone 31N for being compared with noise dataset.
+
+## Roads
+
+### Road category
+
+We preprocessed the road dataset to exclude the follwoing categoreis:
+- "path", "track" and "service", as they do not overlap any noise segment. 
+- "pedestrian", "footway" and "cycleway", as they are mainly parallel to major roads. 
+- "steps" and links as non relevant.
+- "motorway" and "busway" because very little represented.
+
+Following the priority: 'trunk', 'primary', 'secondary', 'tertiary', 'residential', 'living_street'.
+We checked if there is any road of that category in a 5 m buffer from noise segment, and in positive case, assign it. Categories are labeled encoded with an integer from 1 to 6.
+
+### Maxspeed, width, lanes, oneway
+
+OSM data for max speed, width and lanes is very sparse (mostly NaN). 
+
+# Momepy
+
+Momepy was used for calculating width. It is not the carrage width, but the building to building distance. 
+Openess was also calculated. 
+TODO: consider adding building height for calculating canyon height and h/w ratio.
+
+# Networkx
+
+### Betwenness centrality (edge + node)
+
+It measures how often a street (edge) or intersection (node) lies on the shortest paths between all othe rplaces in the network. A street with high betweenness centrality carries a lot of potnetial flow. It is often a major traffic corridor.
+
+### Closeness centrality (node)
+
+It measures how close a node is to all other nodes in the network (in terms of travel distance).
+High closeness = central, well‑connected area.
+
+### Straightness centrality (node)
+
+It measures hw direct routes are from a node to all others.
+- If the network is grid‑like and straight, straightness is high.
+- If the network is curvy, fragmented, medieval, straightness is low.
+
+# TODO
+
+Consider adding distance from major road and distance to city center.
