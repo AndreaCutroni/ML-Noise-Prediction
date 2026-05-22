@@ -21,3 +21,6 @@ dependencies:
   - scipy
   - seaborn
   - scikit-learn
+  - momepy
+  - pyproj
+  - networkx
