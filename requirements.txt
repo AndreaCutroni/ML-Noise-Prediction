@@ -6,3 +6,5 @@ folium
 mapclassify
 matplotlib
 pandas
+momepy
+networkx
