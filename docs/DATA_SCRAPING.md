@@ -40,6 +40,11 @@ We checked if there is any road of that category in a 5 m buffer from noise segm
 
 OSM data for max speed, width and lanes is very sparse (mostly NaN). 
 
+## Building height / number of floors
+
+We documented the building-height workflow with three different approaches.
+OSM building heights were too sparse to cover Barcelona consistently. Cadastral floor counts were much more precise, but converting floors to meters was unstable because floor-to-floor height varies across buildings. For that reason, we compared two LiDAR Digital Surface Model TIFFs (`Catalunya-1mtif1777965317095.tif` and `Catalunya-1mtif1777965631099.tif`) as height sources and kept these data as the most complete city-wide solution.
+
 # Momepy
 
 Momepy was used for calculating width. It is not the carrage width, but the building to building distance. 
