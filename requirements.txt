@@ -5,6 +5,8 @@ ipykernel
 folium
 mapclassify
 matplotlib
+seaborn
+scikit-learn
 pandas
 momepy
 networkx
