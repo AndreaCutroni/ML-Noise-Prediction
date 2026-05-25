@@ -52,11 +52,20 @@ POIs were classified with overlapping flags instead of one hard label, so a sing
 - `daytime` / `nighttime`: when the place is most active
 - `continuous` / `discontinuous`: whether the use is steady or event-like
 - `transport_related`: mobility nodes such as stops, stations, parking, bike and rental facilities
-- `support_infrastructure`: utility and city-support uses such as recycling, lockers, bins, toilets, ATMs, and signs
+- `support_infrastructure`: utility and city-support uses such as recycling, lockers, bins, toilets, ATMs
 - `noise_sensitive`: uses where noise is more problematic, such as schools, hospitals, libraries, and care facilities
 - `recreation_green`: parks, sports, leisure, and green-related uses
 
 This separation keeps the POI features interpretable and lets us count multiple roles for the same point.
+
+
+## Trees
+
+We first tested OSM trees, but coverage was too sparse and mostly represented street-tree records. We then switched to two Barcelona Open Data layers: street trees and park trees, which are much more complete at city scale.
+
+Tree points were counted separately inside 10 m and 20 m buffers around each noise street segment, and then summed into total tree counts per buffer distance.
+
+
 
 # Momepy
 
