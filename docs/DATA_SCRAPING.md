@@ -45,6 +45,19 @@ OSM data for max speed, width and lanes is very sparse (mostly NaN).
 We documented the building-height workflow with three different approaches.
 OSM building heights were too sparse to cover Barcelona consistently. Cadastral floor counts were much more precise, but converting floors to meters was unstable because floor-to-floor height varies across buildings. For that reason, we compared two LiDAR Digital Surface Model TIFFs (`Catalunya-1mtif1777965317095.tif` and `Catalunya-1mtif1777965631099.tif`) as height sources and kept these data as the most complete city-wide solution.
 
+## Points of Interest
+
+POIs were classified with overlapping flags instead of one hard label, so a single point can be daytime and continuous at the same time. We used these groups:
+
+- `daytime` / `nighttime`: when the place is most active
+- `continuous` / `discontinuous`: whether the use is steady or event-like
+- `transport_related`: mobility nodes such as stops, stations, parking, bike and rental facilities
+- `support_infrastructure`: utility and city-support uses such as recycling, lockers, bins, toilets, ATMs, and signs
+- `noise_sensitive`: uses where noise is more problematic, such as schools, hospitals, libraries, and care facilities
+- `recreation_green`: parks, sports, leisure, and green-related uses
+
+This separation keeps the POI features interpretable and lets us count multiple roles for the same point.
+
 # Momepy
 
 Momepy was used for calculating width. It is not the carrage width, but the building to building distance. 
