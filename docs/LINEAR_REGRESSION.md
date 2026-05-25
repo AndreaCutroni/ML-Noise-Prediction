@@ -25,7 +25,7 @@ And **46 input features** (the information we use to make predictions), includin
 
 ---
 
-## Part 1 — What is Linear Regression? (For Beginners)
+## Part 1 — What is Linear Regression?
 
 ### The Core Idea
 
