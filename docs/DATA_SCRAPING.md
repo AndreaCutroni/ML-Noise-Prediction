@@ -89,6 +89,30 @@ It measures hw direct routes are from a node to all others.
 - If the network is grid‑like and straight, straightness is high.
 - If the network is curvy, fragmented, medieval, straightness is low.
 
+# Dataset merge and subsample
+
+## Merge notebook
+
+The merge notebook collects all processed feature tables and combines them into one machine-learning dataset.
+
+- Base table: OSM roads with the street_id key and noise targets.
+- Merge key: all feature tables are normalized to street_id (for example, TRAM is renamed when needed).
+- Merge strategy: iterative left joins so every base street segment is preserved.
+- Cleanup: duplicate columns are removed, missing values are filled with 0, and noise ranges are converted to numeric lower-bound values.
+- Output: a single merged CSV used for model training.
+
+## Subsample notebook
+
+The subsample notebook creates a half-size version of the final ML table while keeping the overall noise distribution balanced.
+
+1. It starts from the merged dataset and checks that the three targets exist: noise_day, noise_evening, noise_night.
+2. It builds one row-level noise_score as the mean of the three targets, so sampling is based on overall exposure instead of three separate axes.
+3. It creates quantile buckets from noise_score using qcut (target: 8 buckets). Quantile buckets keep group sizes similar and avoid over-representing common ranges.
+4. It samples 50% of rows inside each bucket with a fixed random seed, so the result is reproducible and balanced across quieter and louder streets.
+5. It removes temporary helper columns (noise_score and bucket label), keeps row order stable (sorted by fid when present), and exports the halved CSV.
+
+This gives a smaller dataset with comparable noise-profile coverage, which is useful for faster experiments without strongly distorting the target distribution.
+
 # TODO
 
 Calculate closeness centrality, betweeness centrality ndoes, straightness centrality
