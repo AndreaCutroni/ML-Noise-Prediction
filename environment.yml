@@ -26,3 +26,5 @@ dependencies:
   - networkx
   - altair
   - xgboost
+  - tensorflow
+  - minisom
