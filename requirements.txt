@@ -14,3 +14,5 @@ altair
 xgboost
 tensorflow
 minisom
+shap
+mlxtend
