@@ -89,6 +89,44 @@ It measures hw direct routes are from a node to all others.
 - If the network is grid‑like and straight, straightness is high.
 - If the network is curvy, fragmented, medieval, straightness is low.
 
+# Barcelona Traffic Dataset Guide
+
+This dataset contains traffic measurements for Barcelona street segments (*tramos*), collected primarily via underground magnetic sensors. Historical data is provided in monthly CSV files.
+
+---
+
+### Column Definitions
+
+* **`idTram`**: The unique identifier for the specific street segment. You must cross-reference this with the **"Relació de trams"** dataset to get physical street names and locations.
+* **`data`**: The timestamp of the recording, formatted as `YYYYMMDDHHMMSS` (Year, Month, Day, Hour, Minute, Second).
+* **`estatActual`**: The live traffic state code at the time of recording.
+* **`estatPrevist`**: The forecasted traffic state code for **15 minutes into the future**.
+
+---
+
+### Traffic Status Codes
+
+Both `estatActual` and `estatPrevist` use the following numeric scale:
+
+| Code | Traffic Meaning | Description |
+| --- | --- | --- |
+| **0** | Sense dades | **No data** (Sensor is offline or malfunctioning) |
+| **1** | Molt fluid | **Very fluid** traffic |
+| **2** | Fluid | **Fluid** traffic |
+| **3** | Dens | **Dense** traffic |
+| **4** | Molt dens | **Very dense** traffic |
+| **5** | Congestió | **Congestion** (Heavy traffic jam) |
+| **6** | Tallat | **Road closed** / Traffic cut off |
+
+---
+
+### Data Exceptions & Gaps
+
+Be aware of these missing data windows when training your machine learning model:
+
+* **April 2020 & May 2020:** Completely blank due to service interruptions from COVID-19.
+* **December 2, 2021 – December 13, 2021:** Missing data due to a technical incident.
+
 # Dataset merge and subsample
 
 ## Merge notebook
