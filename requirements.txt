@@ -12,3 +12,7 @@ momepy
 networkx
 altair
 xgboost
+tensorflow
+minisom
+shap
+mlxtend
