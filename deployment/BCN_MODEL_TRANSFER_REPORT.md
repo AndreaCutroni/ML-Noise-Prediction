@@ -1,14 +1,15 @@
 # Testing the Barcelona-trained noise models on other cities
 
-**Date:** 2026-06-12
-**Models:** Logistic Regression, XGBoost, Random Forest — trained on `notebooks/_elena/data/bcn_noise_class_ml_dataset.csv`, target **`noise_day`**, saved as pickles in `notebooks/_elena/models/` (see `07_SL_save_model_classification.ipynb`).
-**Test notebooks:** `deployment/<City>/notebooks/03_<XXX>_test_bcn_model.ipynb` → results in `deployment/<City>/results/` (predictions CSV + interactive error map HTML).
+**Date:** 2026-06-12 (regression transfer added 2026-06-13)
+**Classification models:** Logistic Regression, XGBoost, Random Forest — trained on `notebooks/_elena/data/bcn_noise_class_ml_dataset.csv`, target **`noise_day` class**, saved as pickles in `notebooks/_elena/models/` (see `07_SL_save_model_classification.ipynb`).
+**Regression models:** Linear Regression, XGBoost, Random Forest — trained on `notebooks/_elena/data/bcn_noise_regre_ml_dataset.csv`, target **`noise_day` in dB**, saved with the `_regre` suffix (see `07_SL_save_model_regression.ipynb`).
+**Test notebooks:** `deployment/<City>/notebooks/<XXX>_test_bcn_model_class.ipynb` and `<XXX>_test_bcn_model_regre.ipynb` → results in `deployment/<City>/results/` (predictions CSV + interactive error map HTML).
 
 Noise classes: `0: <40 dB, 1: 40–50, 2: 50–60, 3: 60–70, 4: ≥70`.
 
 ---
 
-## Results
+## Results — classification (predicting the `noise_day` class)
 
 ### Exact-class accuracy
 
@@ -36,6 +37,41 @@ Noise classes: `0: <40 dB, 1: 40–50, 2: 50–60, 3: 60–70, 4: ≥70`.
 | 2 (50–60) | 29% | 42% | 5% | 32% | 24% |
 | 3 (60–70) | **54%** | 37% | **94%** | 17% | 48% |
 | 4 (≥70) | 12% | 11% | 1% | 3% | **27%** |
+
+---
+
+## Results — regression (predicting `noise_day` in dB)
+
+The three regressors from `04_SL_regression.ipynb` (pickled by `07_SL_save_model_regression.ipynb`) were applied to each city's `<xxx>_noise_regre_ml_dataset.csv` — the same 22-column schema, but with real dB values instead of the 0–4 classes. The dB values come from the **same noise-map join/sampling as the class pipeline** (stored in `<XXX>_noise_streets.gpkg`, extracted by `<XXX>_OSM_roads_noise_regre.ipynb`), so segments and features are identical to the classification datasets.
+
+**Barcelona held-out 20% baseline:** Linear Regression R² 0.461 / MAE 4.10 dB · XGBoost R² 0.681 / MAE 3.06 dB · Random Forest R² 0.704 / MAE 2.90 dB.
+
+### MAE in dB (mean signed error, predicted − real)
+
+| Model | Viladecans | Milan | Berlin | Lyon |
+|---|---|---|---|---|
+| Linear Regression | **4.67** (+1.1) | **4.82** (+1.7) | 8.42 (+6.4) | **5.03** (−3.9) |
+| XGBoost | 8.74 (−7.0) | 4.94 (−4.0) | **6.47** (+2.9) | 7.14 (−6.3) |
+| Random Forest | 6.08 (−3.6) | 5.41 (−5.0) | 6.90 (+3.5) | 6.50 (−5.8) |
+
+R² is negative almost everywhere out-of-domain (Milan −3.1…−3.8 because the zoning-limit target has almost no variance to explain; Viladecans/Lyon −1.8…0.06; Berlin −0.37…+0.17), so MAE and bias are the meaningful numbers here.
+
+### Derived-class accuracy (predicted dB binned back into the 0–4 classes)
+
+| Model | Viladecans | Milan | Berlin | Lyon |
+|---|---|---|---|---|
+| Linear Regression | **0.578** | **0.604** | 0.315 | **0.446** |
+| XGBoost | 0.357 | 0.465 | **0.389** | 0.371 |
+| Random Forest | 0.485 | 0.350 | 0.337 | 0.397 |
+
+Within ±1 class (Linear Regression): Viladecans 0.96, Milan 0.99, Berlin 0.85, Lyon 0.98.
+
+### Reading
+
+- **Linear Regression is the transfer winner, even more clearly than in classification.** Lowest MAE in 3 of 4 cities with a small bias (+1–2 dB) in Viladecans/Milan; its derived-class accuracy in Viladecans (0.578) beats the best classification model there (LogReg, 0.558).
+- **The tree regressors collapse out of domain.** XGBoost/RF, far ahead on Barcelona (R² 0.68–0.70 vs 0.46), underestimate the other cities by 4–7 dB: trees cannot extrapolate outside the feature ranges they were grown on, so out-of-distribution inputs (centralities, `dist_to_*`) fall into the nearest Barcelona-like leaves.
+- **Berlin is the exception that proves the covariate-shift story.** It's the only city where the trees beat the linear model: Berlin's ~15 σ `dist_to_trunk` values get multiplied by Barcelona-fitted linear coefficients (+6.4 dB bias), while the trees saturate. Even so, the regression XGBoost's derived-class accuracy (0.389) beats every classification model on Berlin (best: RF 0.301) — predicting continuous dB and binning afterwards is the better way to transfer to Berlin.
+- **The signed errors mirror the classification biases:** Berlin overestimated (+3…+6 dB), Lyon underestimated (−4…−6 dB — the Lden-as-day effect), Viladecans and Milan nearly unbiased with the linear model.
 
 ---
 
@@ -87,7 +123,8 @@ Milan's noise values come from acoustic zoning *legal limits* (94% one class), n
 
 ## Notes / caveats
 
-- Berlin's dataset carries one extra column (`dist_to_main`) not in the Barcelona schema; the test selects features by name so it is ignored, but for strict parity it should be dropped in `01_BER_create_dataset_class.ipynb`.
+- Berlin's feature CSV carries one extra column (`dist_to_main`) not in the Barcelona schema; both `01_BER_create_dataset_class.ipynb` and `01_BER_create_dataset_regre.ipynb` drop it, so the exported datasets match Barcelona's 22 columns exactly.
+- Regression artifacts: `Sscaler_regre.pkl`, `feature_columns_regre.pkl`, `linreg/xgb/rf_regre_model.pkl` in `notebooks/_elena/models/`. The city regression datasets keep `noise_day/evening/night` as float dB (continuous in Lyon/Berlin, 5-dB steps in Viladecans, zoning limits in Milan).
 - ~14% of Viladecans segments (222/1,613) lie >50 m from any noise-map line (rural/coastal south); their "real" values are nearest-neighbour extrapolations (`distance` column in `VIL_noise_streets.gpkg`).
 - Viladecans' noise map is the 2017 round (valid 2017–2022); the 2022–2027 map is viewer-only so far.
 - Lyon's data is the Plan bruit de la Métropole de Lyon 2022 (data.grandlyon.com / Acoucité, Licence Ouverte): continuous dB GeoTIFF rasters (10 m, EPSG:2154) sampled at street midpoints; road-traffic noise only; Lden→`db_day`/`db_evening`, Ln→`db_night`. Scope limited to the Lyon commune (7,159 segments) to keep momepy's global centralities tractable.
