@@ -12,11 +12,11 @@ Noise classes: `0: <40 dB, 1: 40–50, 2: 50–60, 3: 60–70, 4: ≥70`.
 
 ### Exact-class accuracy
 
-| Model | Barcelona (held-out 20%) | Viladecans | Milan | Berlin |
-|---|---|---|---|---|
-| Logistic Regression | 0.606 | **0.558** | 0.650 | 0.265 |
-| XGBoost | 0.741 | 0.524 | 0.611 | 0.282 |
-| Random Forest | **0.749** | 0.469 | **0.690** | **0.301** |
+| Model | Barcelona (held-out 20%) | Viladecans | Milan | Berlin | Lyon |
+|---|---|---|---|---|---|
+| Logistic Regression | 0.606 | **0.558** | 0.650 | 0.265 | **0.534** |
+| XGBoost | 0.741 | 0.524 | 0.611 | 0.282 | 0.512 |
+| Random Forest | **0.749** | 0.469 | **0.690** | **0.301** | 0.533 |
 
 ### Macro F1 / within ±1 class / mean signed error (predicted − real)
 
@@ -25,16 +25,17 @@ Noise classes: `0: <40 dB, 1: 40–50, 2: 50–60, 3: 60–70, 4: ≥70`.
 | Viladecans | 0.385 (LogReg) | 0.93 | −0.04 … +0.19 |
 | Milan | 0.204 (RF) | 0.99 | −0.31 … +0.16 |
 | Berlin | 0.229 (RF) | 0.88 | **+0.68 … +0.87** |
+| Lyon | 0.350 (XGBoost) | 0.99 | −0.26 … −0.06 |
 
 ### Real `noise_day` class distribution per city
 
-| Class | Barcelona | Viladecans | Milan | Berlin |
-|---|---|---|---|---|
-| 0 (<40 dB) | 1% | 0% | 0% | 3% |
-| 1 (40–50) | 5% | 10% | 0% | **45%** |
-| 2 (50–60) | 29% | 42% | 5% | 32% |
-| 3 (60–70) | **54%** | 37% | **94%** | 17% |
-| 4 (≥70) | 12% | 11% | 1% | 3% |
+| Class | Barcelona | Viladecans | Milan | Berlin | Lyon |
+|---|---|---|---|---|---|
+| 0 (<40 dB) | 1% | 0% | 0% | 3% | 0% |
+| 1 (40–50) | 5% | 10% | 0% | **45%** | 1% |
+| 2 (50–60) | 29% | 42% | 5% | 32% | 24% |
+| 3 (60–70) | **54%** | 37% | **94%** | 17% | 48% |
+| 4 (≥70) | 12% | 11% | 1% | 3% | **27%** |
 
 ---
 
@@ -42,7 +43,7 @@ Noise classes: `0: <40 dB, 1: 40–50, 2: 50–60, 3: 60–70, 4: ≥70`.
 
 - **The pipeline transfers mechanically without friction.** Because Milan, Viladecans and Berlin were rebuilt to the exact Barcelona schema (same 22 columns, same feature computation methods), the pickled scaler + `feature_columns.pkl` + models apply to any city dataset in three lines (`reindex columns → scaler.transform → model.predict`).
 - **The models capture the noise *gradient* everywhere.** 88–99% of predictions land within ±1 class of the truth in every city. Big loud arterials are consistently predicted louder than small residential streets — the learned relationship between road category/centrality/POIs and noise is qualitatively right.
-- **Milan and Viladecans are usable results.** ~0.5–0.7 exact accuracy with near-zero systematic bias (signed error ±0.2 classes).
+- **Milan, Viladecans and Lyon are usable results.** ~0.5–0.7 exact accuracy with small systematic bias (signed error within ±0.3 classes). Lyon is the cleanest external test so far: real modeled dB (10 m raster), all-classes-occupied target, 0.53 accuracy / 0.99 within ±1, and the best external macro F1 (0.35, XGBoost).
 - **Generalization gap is visible and interpretable.** On Viladecans the simple Logistic Regression (0.558) beats Random Forest (0.469): RF memorizes Barcelona-specific patterns (it had 0.998 train accuracy) that don't hold elsewhere, while the smoother linear boundary transfers better. This is a textbook overfitting-to-source signal.
 
 ## What didn't work
@@ -57,23 +58,23 @@ Noise classes: `0: <40 dB, 1: 40–50, 2: 50–60, 3: 60–70, 4: ≥70`.
 **1. Covariate shift: network-scale-dependent features go out of distribution.**
 The scaler was fit on Barcelona. Mean |z-score| of each city's features under that scaler (≈1.0 means "looks like Barcelona"):
 
-| Feature | BCN | VIL | MIL | BER |
-|---|---|---|---|---|
-| dist_to_trunk | 0.9 | 3.7 | 1.3 | **14.7** |
-| dist_to_primary | 0.7 | 4.3 | 0.7 | 1.4 |
-| closeness_global | 0.8 | **10.1** | 1.1 | 3.5 |
-| closeness_400 | 0.8 | **22.2** | 0.9 | 1.9 |
-| betweenness | 0.6 | 1.8 | 0.7 | 0.6 |
-| width | 0.9 | 0.9 | 0.8 | 0.6 |
-| green / signals | 0.6–0.8 | 0.6–0.7 | 0.6–0.8 | 0.5–0.6 |
+| Feature | BCN | VIL | MIL | BER | LYO |
+|---|---|---|---|---|---|
+| dist_to_trunk | 0.9 | 3.7 | 1.3 | **14.7** | 1.4 |
+| dist_to_primary | 0.7 | 4.3 | 0.7 | 1.4 | 0.7 |
+| closeness_global | 0.8 | **10.1** | 1.1 | 3.5 | 1.7 |
+| closeness_400 | 0.8 | **22.2** | 0.9 | 1.9 | 2.3 |
+| betweenness | 0.6 | 1.8 | 0.7 | 0.6 | 0.9 |
+| width | 0.9 | 0.9 | 0.8 | 0.6 | 0.8 |
+| green / signals | 0.6–0.8 | 0.6–0.7 | 0.6–0.8 | 0.5–0.6 | 0.4–0.8 |
 
 Global closeness/betweenness and `dist_to_*` are **functions of city size**: in tiny Viladecans (1.6k segments) closeness values are ~10–22 σ above Barcelona's; in huge Berlin (71k segments) closeness shrinks and distances to trunk roads explode (up to ~20 km, 15 σ). Milan (~22k segments, similar metropolitan structure) is the only city that stays in-distribution — and it's where accuracy is highest. Local, per-street features (width, green, signals, POIs) transfer fine everywhere.
 
 **2. Label shift: the cities' noise maps describe different acoustic worlds.**
 Barcelona's map says 54% of streets are 60–70 dB; Berlin's says 45% are 40–50 dB. A model trained on Barcelona has a strong prior toward classes 2–3 and reproduces it abroad (Berlin RF predicts 96% class 2–3), which alone explains Berlin's +0.7-class bias. Part of this is real urbanism (Barcelona's dense compact blocks vs Berlin's wide streets and greenery), part is **methodology of the source maps** — each city's strategic noise map uses its own calculation model, coverage and rounding.
 
-**3. Label quality: Milan's targets aren't measurements.**
-Milan's noise values come from acoustic zoning *legal limits* (94% one class), not modeled dB like Barcelona/Viladecans/Berlin. Testing against them mostly measures "did the model predict the legal limit", not real noise. Viladecans (real modeled dB, 4 occupied classes, real evening period) is the cleanest external test; Berlin (real modeled dB, 5 occupied classes) is the hardest.
+**3. Label quality and definition: not all "noise_day" values mean the same thing.**
+Milan's noise values come from acoustic zoning *legal limits* (94% one class), not modeled dB like Barcelona/Viladecans/Berlin/Lyon. Testing against them mostly measures "did the model predict the legal limit", not real noise. Lyon has a subtler version of the problem: it publishes only **Lden** (24h composite that up-weights evening +5 dB and night +10 dB), which was used as `db_day`. Lden runs a few dB above a plain daytime level, which inflates Lyon's class-4 share (27% real vs 3.6% predicted by RF) and explains the mild *under*-estimation bias (−0.2 classes) — the mirror image of Berlin's overestimation. Viladecans and Lyon are the cleanest external tests; Berlin (real modeled dB, 5 occupied classes, strong label shift) is the hardest.
 
 **4. Residual overfitting of the tree models.** RF/XGBoost reach ~0.97–1.00 train accuracy on Barcelona; their advantage over Logistic Regression disappears (Milan, Berlin) or inverts (Viladecans) out-of-domain.
 
@@ -89,4 +90,5 @@ Milan's noise values come from acoustic zoning *legal limits* (94% one class), n
 - Berlin's dataset carries one extra column (`dist_to_main`) not in the Barcelona schema; the test selects features by name so it is ignored, but for strict parity it should be dropped in `01_BER_create_dataset_class.ipynb`.
 - ~14% of Viladecans segments (222/1,613) lie >50 m from any noise-map line (rural/coastal south); their "real" values are nearest-neighbour extrapolations (`distance` column in `VIL_noise_streets.gpkg`).
 - Viladecans' noise map is the 2017 round (valid 2017–2022); the 2022–2027 map is viewer-only so far.
+- Lyon's data is the Plan bruit de la Métropole de Lyon 2022 (data.grandlyon.com / Acoucité, Licence Ouverte): continuous dB GeoTIFF rasters (10 m, EPSG:2154) sampled at street midpoints; road-traffic noise only; Lden→`db_day`/`db_evening`, Ln→`db_night`. Scope limited to the Lyon commune (7,159 segments) to keep momepy's global centralities tractable.
 - Pickles are bound to the `data-encoding` env (sklearn 1.8.0, xgboost 3.x) — load them with the same environment.
