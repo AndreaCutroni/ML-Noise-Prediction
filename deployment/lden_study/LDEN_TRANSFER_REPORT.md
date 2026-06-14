@@ -81,6 +81,17 @@ the evening/night penalties — confirming the targets are genuinely the composi
 *Barcelona (shaded) is the held-out source; dashed lines carry its per-model level across each chart. Palette
 and layout match the ablation study; legends sit above each plot.*
 
+### Interactive per-city error maps
+
+`03_city_maps.ipynb` writes interactive HTML maps of the **Random-Forest Lden error** for every deployment
+city (blue = under-, red = over-predicted, white = correct) — open in a browser. Two flavours per city:
+
+- **Regression** `db_diff = predicted − real Lden` (dB, ±15 scale): `results/<xxx>_lden_map_db_diff_rf.html`
+- **Classification** `class_diff = predicted − real Lden class` (0–4 bins, ±4 scale): `results/<xxx>_lden_map_class_diff_rf.html`
+
+for `<xxx>` ∈ {`vil` Viladecans, `zgz` Zaragoza, `ber` Berlin (red over-prediction city-wide), `lyo` Lyon,
+`mil` Milan — proxy Lden, see caveats}. Barcelona is the training city, so it is not mapped.
+
 ## Interpretation
 
 - **The transfer behaves exactly like the `noise_day` study** — same 18 features, so the same covariate shift
