@@ -83,16 +83,14 @@ and layout match the ablation study; legends sit above each plot.*
 
 ### Interactive per-city error maps
 
-`03_city_maps.ipynb` writes an interactive HTML map of the **Random-Forest Lden error** (`db_diff = predicted −
-real`, dB; blue = under-, red = over-predicted) for every deployment city — open in a browser:
+`03_city_maps.ipynb` writes interactive HTML maps of the **Random-Forest Lden error** for every deployment
+city (blue = under-, red = over-predicted, white = correct) — open in a browser. Two flavours per city:
 
-- `results/vil_lden_map_db_diff_rf.html` (Viladecans)
-- `results/zgz_lden_map_db_diff_rf.html` (Zaragoza)
-- `results/ber_lden_map_db_diff_rf.html` (Berlin — its red over-prediction is visible city-wide)
-- `results/lyo_lden_map_db_diff_rf.html` (Lyon)
-- `results/mil_lden_map_db_diff_rf.html` (Milan — proxy Lden, see caveats)
+- **Regression** `db_diff = predicted − real Lden` (dB, ±15 scale): `results/<xxx>_lden_map_db_diff_rf.html`
+- **Classification** `class_diff = predicted − real Lden class` (0–4 bins, ±4 scale): `results/<xxx>_lden_map_class_diff_rf.html`
 
-Barcelona is the training city, so it is not mapped.
+for `<xxx>` ∈ {`vil` Viladecans, `zgz` Zaragoza, `ber` Berlin (red over-prediction city-wide), `lyo` Lyon,
+`mil` Milan — proxy Lden, see caveats}. Barcelona is the training city, so it is not mapped.
 
 ## Interpretation
 
