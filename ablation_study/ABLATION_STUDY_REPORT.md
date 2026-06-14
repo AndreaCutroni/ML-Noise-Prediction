@@ -26,7 +26,7 @@ numbers are directly comparable. Models are exactly those of `07_SL_save_model_*
 
 ### The 13 configurations (per task, per model)
 
-`full` (all 18) · **leave-one-out** `−landuse −centrality −points −distances −core` · **single-group-only** `only-landuse only-centrality only-points only-distances only-core` · **combined** `−distances−centrality` (the 8 *local / scale-invariant* features) and `only-distances+centrality` (the 10 *network-scale-dependent* features).
+`full` (all 18) · **leave-one-out** `without - landuse`, `without - centrality`, `without - points`, `without - distances`, `without - core` · **single-group-only** `only - landuse`, `only - centrality`, `only - points`, `only - distances`, `only - core` · **combined** `without - distances + centrality` (the 8 *local / scale-invariant* features) and `only - distances + centrality` (the 10 *network-scale-dependent* features).
 
 The combined pair targets the two groups that go out-of-distribution across cities (see
 [the transfer report](../deployment/BCN_MODEL_TRANSFER_REPORT.md)) — the "Scale-invariant vs
@@ -42,12 +42,12 @@ accuracy; LinReg 0.461 / XGB 0.681 / RF 0.704 R²), confirming the harness is so
 | Config | LogReg | XGBoost | RF | | Config | LogReg | XGBoost | RF |
 |---|---|---|---|---|---|---|---|---|
 | **full** | **0.606** | **0.744** | **0.749** | | | | | |
-| −landuse | 0.604 | 0.749 | 0.746 | | only-landuse | 0.546 | 0.550 | 0.547 |
-| −centrality | 0.591 | 0.728 | 0.734 | | only-centrality | 0.568 | 0.666 | 0.701 |
-| −points | 0.590 | 0.739 | 0.745 | | only-points | 0.595 | 0.602 | 0.608 |
-| −distances | 0.605 | 0.708 | 0.724 | | only-distances | 0.562 | 0.713 | **0.740** |
-| −core | 0.610 | 0.744 | 0.748 | | only-core | 0.532 | 0.537 | 0.503 |
-| **−dist−centr** (8 local) | 0.564 | 0.639 | 0.658 | | **only-dist+centr** (10 net.) | 0.582 | 0.742 | **0.751** |
+| without - landuse | 0.604 | 0.749 | 0.746 | | only - landuse | 0.546 | 0.550 | 0.547 |
+| without - centrality | 0.591 | 0.728 | 0.734 | | only - centrality | 0.568 | 0.666 | 0.701 |
+| without - points | 0.590 | 0.739 | 0.745 | | only - points | 0.595 | 0.602 | 0.608 |
+| without - distances | 0.605 | 0.708 | 0.724 | | only - distances | 0.562 | 0.713 | **0.740** |
+| without - core | 0.610 | 0.744 | 0.748 | | only - core | 0.532 | 0.537 | 0.503 |
+| **without - distances + centrality** (8 local) | 0.564 | 0.639 | 0.658 | | **only - distances + centrality** (10 net.) | 0.582 | 0.742 | **0.751** |
 
 Macro F1 and within-±1-class follow the same ranking; within ±1 stays 0.98–0.99 for every full/leave-out
 config and never drops below 0.92 even for the weakest single-group model (full tables in the result CSV).
@@ -57,15 +57,15 @@ config and never drops below 0.92 even for the weakest single-group model (full 
 | Config | LinReg | XGBoost | RF | | Config | LinReg | XGBoost | RF |
 |---|---|---|---|---|---|---|---|---|
 | **full** | **0.461** | **0.681** | **0.704** | | | | | |
-| −landuse | 0.451 | 0.682 | 0.703 | | only-landuse | 0.056 | 0.066 | −0.020 |
-| −centrality | 0.430 | 0.649 | 0.690 | | only-centrality | 0.301 | 0.530 | 0.595 |
-| −points | 0.440 | 0.677 | 0.697 | | only-points | 0.184 | 0.334 | 0.288 |
-| −distances | 0.438 | 0.626 | 0.666 | | only-distances | 0.246 | 0.632 | **0.681** |
-| −core | 0.422 | 0.687 | 0.704 | | only-core | 0.176 | 0.184 | −0.038 |
-| **−dist−centr** (8 local) | 0.305 | 0.459 | 0.490 | | **only-dist+centr** (10 net.) | 0.362 | 0.679 | **0.696** |
+| without - landuse | 0.451 | 0.682 | 0.703 | | only - landuse | 0.056 | 0.066 | −0.020 |
+| without - centrality | 0.430 | 0.649 | 0.690 | | only - centrality | 0.301 | 0.530 | 0.595 |
+| without - points | 0.440 | 0.677 | 0.697 | | only - points | 0.184 | 0.334 | 0.288 |
+| without - distances | 0.438 | 0.626 | 0.666 | | only - distances | 0.246 | 0.632 | **0.681** |
+| without - core | 0.422 | 0.687 | 0.704 | | only - core | 0.176 | 0.184 | −0.038 |
+| **without - distances + centrality** (8 local) | 0.305 | 0.459 | 0.490 | | **only - distances + centrality** (10 net.) | 0.362 | 0.679 | **0.696** |
 
-MAE (dB) mirrors R²: full = LinReg 4.10 / XGB 3.07 / RF 2.89; the worst leave-out (−distances) is
-LinReg 4.18 / XGB 3.33 / RF 3.10; single-group MAE ranges 2.98 (RF only-distances) to 5.50 (RF only-landuse).
+MAE (dB) mirrors R²: full = LinReg 4.10 / XGB 3.07 / RF 2.89; the worst leave-out (without - distances) is
+LinReg 4.18 / XGB 3.33 / RF 3.10; single-group MAE ranges 2.98 (RF only - distances) to 5.50 (RF only - landuse).
 
 ---
 
@@ -94,9 +94,9 @@ costs Linear Regression 0.039 R² — see below.*
 
 ![Single-group standalone power](results/fig_single_group.png)
 
-*Dashed line = full model. **`only-distances` (Random Forest) reaches 0.740 accuracy / 0.681 R² — within
-0.01–0.02 of the full 18-feature model.** `only-centrality` is a solid second; `only-points`,
-`only-landuse` and `only-core` are weak on their own.*
+*Dashed line = full model. **`only - distances` (Random Forest) reaches 0.740 accuracy / 0.681 R² — within
+0.01–0.02 of the full 18-feature model.** `only - centrality` is a solid second; `only - points`,
+`only - landuse` and `only - core` are weak on their own.*
 
 ### Scale-invariant vs scale-dependent features — the transfer tension
 
@@ -112,8 +112,8 @@ at 4.7σ under the Barcelona scaler). This chart splits the features into the **
 | Config | n features | LogReg / LinReg | XGBoost | RF | RF Δ vs full |
 |---|---|---|---|---|---|
 | **full** | 18 | 0.606 / 0.461 | 0.744 / 0.681 | **0.749 / 0.704** | — |
-| network only (`only-dist+centr`) | 10 | 0.582 / 0.362 | 0.742 / 0.679 | **0.751 / 0.696** | **+0.002 / −0.008** |
-| local only (`−dist−centr`) | 8 | 0.564 / 0.305 | 0.639 / 0.459 | 0.658 / 0.490 | **−0.091 / −0.214** |
+| network only (`only - distances + centrality`) | 10 | 0.582 / 0.362 | 0.742 / 0.679 | **0.751 / 0.696** | **+0.002 / −0.008** |
+| local only (`without - distances + centrality`) | 8 | 0.564 / 0.305 | 0.639 / 0.459 | 0.658 / 0.490 | **−0.091 / −0.214** |
 
 *(each model cell is `classification accuracy / regression R²`; the last column is the Random Forest change vs the full model.)*
 
@@ -134,24 +134,24 @@ don't travel.**
 ## Interpretation
 
 **1. The feature set is highly redundant.** Dropping any one of the five groups costs at most **0.036
-accuracy** (XGBoost, −distances) and **0.055 R²** (XGBoost, −distances); most drops are under 0.01. No
+accuracy** (XGBoost, without - distances) and **0.055 R²** (XGBoost, without - distances); most drops are under 0.01. No
 single group is indispensable, because the groups carry overlapping information about the same
 underlying thing — where a street sits in the road hierarchy.
 
 **2. `distances` is the dominant group.** The six `dist_to_<category>` features are consistently the
 most important: removing them produces the largest drop for both tree models in both tasks, and **alone
-they nearly reproduce the full model** (RF `only-distances`: 0.740 vs 0.749 accuracy; 0.681 vs 0.704 R²).
+they nearly reproduce the full model** (RF `only - distances`: 0.740 vs 0.749 accuracy; 0.681 vs 0.704 R²).
 This makes sense — distance to the nearest trunk/primary/secondary road is a direct proxy for "how big
 is the road I'm on / next to", which is what drives traffic noise. The trees recover almost the entire
 signal from this group.
 
 **3. `centrality` is the clear second.** Betweenness/closeness/straightness removal costs ~0.015
-accuracy and 0.014–0.032 R²; `only-centrality` reaches 0.595 R² (RF). Centrality encodes how much
+accuracy and 0.014–0.032 R²; `only - centrality` reaches 0.595 R² (RF). Centrality encodes how much
 through-traffic a street carries, which is complementary to raw road class.
 
 **4. `landuse`, `points` and `core` add little at the margin — but matter to the linear models.** For
 the tree models, removing landuse or points or core is essentially free (Δ ≤ 0.006), and these groups are
-weak alone (`only-landuse` RF R² is actually negative). The exception is **Linear Regression, where
+weak alone (`only - landuse` RF R² is actually negative). The exception is **Linear Regression, where
 removing `core` (road_category + width) costs 0.039 R²** — the most of any single removal for that model.
 The linear model cannot reconstruct road class from distances the way a tree can, so it leans directly on
 `road_category`; the trees treat it as redundant.
@@ -165,7 +165,7 @@ need the explicit road-class feature.
 ## Conclusion
 
 - **A distances-plus-centrality model (10 features) captures essentially all the signal** the full
-  18-feature model has: RF on `only-distances` already scores 0.740 / 0.681, and adding centrality closes
+  18-feature model has: RF on `only - distances` already scores 0.740 / 0.681, and adding centrality closes
   the small remaining gap. `landuse` and `points` are near-redundant for the tree models.
 - **Practical implication for the city pipelines:** `landuse` is the most expensive feature to compute
   (the ~1 h row-by-row `union_all` buffer-intersection step in every `<XXX>_OSM_landuse` notebook) and it
